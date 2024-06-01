@@ -5,14 +5,14 @@ This project aims to automate the ingestion and processing of weather data using
 
 ## Project Structure
 .
-├── README.md
-├── Result_data
-│ └── weather_api_data.csv
-├── architecture.png
-├── buildspec.yml
-├── dags
-│ ├── openweather_api.py
-│ └── transform_redshift_load.py
-├── requirements.txt
-└── scripts
-└── weather_data_ingestion.py
+├── README.md  
+├── Result_data  
+│ └── weather_api_data.csv  
+├── architecture.png  
+├── buildspec.yml  
+├── dags  
+│ ├── openweather_api.py  
+│ └── transform_redshift_load.py  
+├── requirements.txt  
+└── scripts  
+└── weather_data_ingestion.py  
