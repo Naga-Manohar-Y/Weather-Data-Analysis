@@ -104,10 +104,11 @@ api_params = {
 
 def extract_openweather_data(**kwargs):
     response = requests.get
-
+```
 #### 'transform_redshift_dag'
 Creates and runs a Glue job to load data into Redshift.
 
+```python
 from airflow import DAG
 from airflow.providers.amazon.aws.operators.glue import GlueJobOperator
 from airflow.sensors.external_task_sensor import ExternalTaskSensor
@@ -139,3 +140,4 @@ transform_task = GlueJobOperator(
     },
     dag=dag,
 )
+```
