@@ -235,16 +235,16 @@ phases:
 ```
 
 ### How to Run
-#### CI/CD Deployment of the project:
-Commit and push your code chages to `dev` branch, then create a pull request to `main` branch.
-Once you approve the pull request it triggers your codeBuild project.
-#### CodeBuild deploys the Airflow DAGs and Glue Scripts:
-Ensure the files are deployed to the correct S3 buckets using CodeBuild.
-#### Trigger the Dags:
-Use the Airflow UI to trigger the openweather_api_dag which will start the data ingestion process.
-#### Monitor and Validate:
-Monitor the status of the DAGs and Glue jobs in the Airflow and AWS Glue consoles.
-Validate the data in the Redshift tables.
+1. **CI/CD Deployment of the project**:
+   - Commit and push your code chages to `dev` branch, then create a pull request to `main` branch.
+   - Once you approve the pull request it triggers your codeBuild project.
+2. **CodeBuild deploys the Airflow DAGs and Glue Scripts**:
+   - Ensure the files are deployed to the correct S3 buckets using CodeBuild.
+3. **Trigger the Dags**:
+   - Use the Airflow UI to trigger the openweather_api_dag which will start the data ingestion process.
+4. **Monitor and Validate**:
+   - Monitor the status of the DAGs and Glue jobs in the Airflow and AWS Glue consoles.
+   - Validate the data in the Redshift tables.
 
 ### Conclusion
 This project demonstrates a scalable and automated workflow for ingesting and processing weather data using AWS services. By leveraging Airflow for orchestration, Glue for ETL, and Redshift for data warehousing, and CodeBuild for CI/CD, the pipeline ensures efficient data processing and analysis.
