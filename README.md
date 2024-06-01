@@ -4,6 +4,7 @@
 This project aims to automate the ingestion and processing of weather data using various AWS services. The workflow is designed to extract weather data from the OpenWeather API, store it in Amazon S3, process it using AWS Glue, and finally load the processed data into Amazon Redshift for further analysis. The project uses Amazon MWAA (Managed Workflows for Apache Airflow) to orchestrate the entire process.
 
 ## Project Structure
+```
 .
 ├── README.md  
 ├── Result_data  
@@ -15,7 +16,8 @@ This project aims to automate the ingestion and processing of weather data using
 │ └── transform_redshift_load.py  
 ├── requirements.txt  
 └── scripts  
-└── weather_data_ingestion.py  
+└── weather_data_ingestion.py
+```
 
 
 ## Architecture
@@ -209,3 +211,5 @@ redshift_output = glueContext.write_dynamic_frame.from_options(
 
 job.commit()
 ```
+### CI/CD with CodeBuild
+The `buildspec.yml` file defines the build and deployment steps.
