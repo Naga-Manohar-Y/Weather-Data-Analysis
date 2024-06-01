@@ -1,7 +1,8 @@
 # Weather-Data-Analysis
 
 ## Overview
-This project aims to automate the ingestion and processing of weather data using various AWS services. The workflow is designed to extract weather data from the OpenWeather API, store it in Amazon S3, process it using AWS Glue, and finally load the processed data into Amazon Redshift for further analysis. The project uses Amazon MWAA (Managed Workflows for Apache Airflow) to orchestrate the entire process.
+This project aims to automate the ingestion and processing of weather data using various AWS services. The workflow is designed to extract weather data from the OpenWeather API, store it in Amazon S3, process it using AWS Glue, and finally load the processed data into Amazon Redshift for further analysis. The project uses Amazon MWAA (Managed Workflows for Apache Airflow) to orchestrate the entire process and AWS CodeBuild for continuous integration and continuous deployment (CI/CD).
+.
 
 ## Project Structure
 ```
@@ -27,9 +28,8 @@ This project aims to automate the ingestion and processing of weather data using
 - **Amazon S3**: Acts as a data lake to store raw weather data.
 - **AWS Glue**: Performs ETL (Extract, Transform, Load) operations and loads data into Redshift.
 - **Amazon Redshift**: Data warehousing solution to store and analyze processed data.
-- **Amazon SNS**: Sends notifications on the status of data processing.
 - **Amazon MWAA**: Orchestrates the workflow using Apache Airflow.
-
+- **AWS CodeBuild**: Automates the build and deployment process as part of CI/CD.
 ## Workflow
 1. **API Data Extraction**: 
    - A DAG in Airflow calls the OpenWeather API and ingests the data in CSV format into an S3 bucket.
@@ -37,6 +37,8 @@ This project aims to automate the ingestion and processing of weather data using
    - Another DAG triggers a Glue job which processes the ingested data and loads it into Amazon Redshift.
 3. **Glue Job**:
    - The Glue job filters the weather data and transforms it before loading it into Redshift.
+4. **CI/CD with CodeBuild**:
+   - The CodeBuild service is configured to automate the deployment of Airflow DAGs, requirements and Glue scripts to the appropriate S3 buckets.
 
 ## Setup Instructions
 
@@ -245,4 +247,4 @@ Monitor the status of the DAGs and Glue jobs in the Airflow and AWS Glue console
 Validate the data in the Redshift tables.
 
 ### Conclusion
-This project demonstrates a scalable and automated workflow for ingesting and processing weather data using AWS services. By leveraging Airflow for orchestration, Glue for ETL, and Redshift for data warehousing, the pipeline ensures efficient data processing and analysis.
+This project demonstrates a scalable and automated workflow for ingesting and processing weather data using AWS services. By leveraging Airflow for orchestration, Glue for ETL, and Redshift for data warehousing, and CodeBuild for CI/CD, the pipeline ensures efficient data processing and analysis.
